@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			img {
+				width: 300px;
+			}
+
+			#mask {
+				position: relative;
+				width: 300px;
+				height: 300px;
+				margin: auto;
+			}
+
+			.indicate {
+				position: absolute;
+				width: 500px;
+				top: 250px;
+				left: -100px;
+			}
+
+			.indicate a {
+				position: absolute;
+				top: 0;
+			}
+
+			.indicate a:nth-child(1) {
+				left: 0;
+			}
+
+			.indicate a:nth-child(2) {
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mask">
+			<h1>动态改变src属性值</h1>
+			<img :src="imgArr[index]">
+			<div class="indicate">
+				<a href="#" @click="prev" v-show="index!=0">上一张</a>
+				<a href="#" @click="next" v-show="index<imgArr.length-1">下一张</a>
+			</div>
+		</div>
+	</body>
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	<script type="text/javascript">
+		// 1.定义图片数组
+		// 2.添加图片索引
+		// 3.绑定src属性
+		// 4.图片切换逻辑(累加递减索引)
+		var app = new Vue({
+			el: "#mask",
+			data: {
+				imgArr: ["img/1.jpg",
+					"img/2.jpg",
+					"img/3.jpg",
+					"img/4.jpg",
+					"img/5.jpg"
+				],
+				index: 0
+			},
+			methods: {
+				prev() {
+					this.index--
+				},
+				next() {
+					this.index++
+				}
+			}
+		})
+	</script>
+</html>
