@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>v-if语法在网站注册中的实际应用</title>
+        <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+        <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="lantian">
+            <input type="text" v-model="age" />
+            <span v-if="age<20">小孩</span>
+            <span v-else-if="age<30">青年</span>
+            <span v-else-if="age<50">壮年</span>
+            <span v-else>老年</span>
+            <hr />
+            <input type="checkbox" v-model="copyright" />接受协议<br />
+            <span v-if="copyright==false">请先接受协议</span>
+            <span  v-else>注册</span>
+			
+			<input type="text" v-model="age" />
+			<span v-if="age<20">小孩</span>
+			<span v-else-if="age<30">青年</span>
+			<span v-else-f></span>
+        </div>
+        <script>
+            var app=new Vue({
+            el:'#lantian',
+            data:{
+                copyright:false,
+                age:0
+            }
+        });
+        </script>
+    </body>
+</html>
